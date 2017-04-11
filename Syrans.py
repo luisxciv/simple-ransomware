@@ -1,4 +1,13 @@
 #!/usr/bin/python
+'''
+  ____                            
+ / ___| _   _ _ __ __ _ _ __  ___ 
+ \___ \| | | | '__/ _` | '_ \/ __|
+  ___) | |_| | | | (_| | | | \__ \
+ |____/ \__, |_|  \__,_|_| |_|___/
+        |___/                     v1.1
+				by: luisxciv '''
+
 import os, random, struct, hashlib, time, win32api, webbrowser, ttk
 import Tkinter as tk
 from Tkinter import *
