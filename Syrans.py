@@ -66,7 +66,7 @@ def encrypt(key, in_filename, out_filename=None, chunksize=64*1024):
 
                 outfile.write(encryptor.encrypt(chunk))
 
-
+		
 def cancel():
     app.destroy()
 
