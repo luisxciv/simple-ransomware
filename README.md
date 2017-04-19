@@ -16,4 +16,4 @@ pypiwin32
 webbrowser
 ttk
 
-Sorry if i forgot one. 
+I have added a decryption script in the repo. (Not tested yet)
