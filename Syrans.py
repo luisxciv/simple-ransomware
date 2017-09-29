@@ -12,7 +12,7 @@ import os, random, struct, hashlib, time, win32api, webbrowser, ttk
 import Tkinter as tk
 from Tkinter import *
 from Crypto.Cipher import AES
-
+#test 
 extensions = ['.txt'] # Testing only with txt files
 homedir = "C:\Users\Python\Desktop\docu" #Testing only under this directory
 path = os.path.join(homedir, "firstdir")
