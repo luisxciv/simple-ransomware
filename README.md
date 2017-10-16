@@ -1,6 +1,6 @@
 # SYrans v1.1
 
-```Note: Test in your system at your own risk as i still haven't worked on the decrypt class 
+```Note: Test in your system at your own risk as i still haven't worked on the decrypt class ```
 
 A soon to be; free, open-source ransomware built in Python with some cool features. This tool was built for educational purposes only.
 
