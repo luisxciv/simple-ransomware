@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
-''' Use this file to decrypt whichever files you have encrypted using my ransomware
-I havent really tested this script but it should be able to decrypt AES-256 CBC mode'''
+''' temporary quick script to decrypt AES-256 CBC mode'''
 import base64
 import hashlib
 from Crypto import Random
@@ -25,4 +24,3 @@ class AESCipher(object):
     @staticmethod
     def _unpad(s):
         return s[:-ord(s[len(s)-1:])]
-' Dont forget to add the path ss
