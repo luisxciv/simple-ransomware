@@ -1,4 +1,4 @@
-# SYrans v1.1
+# simple-ransomware
 
 ```Note: Test in your system at your own risk as i still haven't worked on the decrypt class ```
 
@@ -9,8 +9,8 @@ A soon to be; free, open-source ransomware built in Python with some cool featur
 Note: This project is purely academic, use at your own risk. I do not encourage in any way the use of this software illegally or to attack targets without their previous authorization
 
 Requirements:
-Pycrypto 
+`Pycrypto
 pypiwin32
 webbrowser
-ttk
+ttk`
 
